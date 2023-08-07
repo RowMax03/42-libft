@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:09:20 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/01/03 17:17:13 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/08/02 05:58:04 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdlib.h>
 
-static int	wordcount(const char *s, char c)
+int	wordcount(const char *s, char c)
 {
 	int		i;
 	int		wrd;
@@ -35,7 +35,7 @@ static int	wordcount(const char *s, char c)
 	return (i);
 }
 
-static char	*fillstr(const char *str, int z, int fin)
+char	*fillstr(const char *str, int z, int fin)
 {
 	char	*fill;
 	int		i;
@@ -52,7 +52,7 @@ static char	*fillstr(const char *str, int z, int fin)
 	return (fill);
 }
 
-void	assign_values(int *i, int *j, size_t *z)
+static void	assign_values(int *i, int *j, size_t *z)
 {
 	*i = 0;
 	*j = -1;
