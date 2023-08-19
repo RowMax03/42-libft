@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_vecfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 12:22:28 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/08/17 10:09:14 by mreidenb         ###   ########.fr       */
+/*   Created: 2023/08/17 03:32:25 by mreidenb          #+#    #+#             */
+/*   Updated: 2023/08/17 03:36:35 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stddef.h>
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_vecfree(char **vec)
 {
-	size_t					i;
-	unsigned char			*d;
-	const unsigned char		*s;
+	size_t	i;
 
-	i = len - 1;
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (!d && !s)
-		return (dst);
-	if (d < s)
-	{
-		ft_memcpy(dst, src, len);
-		return (dst);
-	}
-	while (len--)
-	{
-		d[i] = s[i];
-		i--;
-	}
-	return (dst);
+	i = 0;
+	if (vec == NULL)
+		return ;
+	while (vec[i] != NULL)
+		free(vec[i++]);
+	free(vec);
 }

@@ -6,11 +6,11 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 15:46:31 by mreidenb          #+#    #+#             */
-/*   Updated: 2022/10/14 02:38:47 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/08/17 03:59:00 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *str)
 {

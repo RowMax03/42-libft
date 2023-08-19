@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_vecdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/10 12:22:28 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/08/17 10:09:14 by mreidenb         ###   ########.fr       */
+/*   Created: 2023/08/17 00:32:00 by mreidenb          #+#    #+#             */
+/*   Updated: 2023/08/17 03:51:16 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stddef.h>
-
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	**ft_vecdup(const char **vec)
 {
-	size_t					i;
-	unsigned char			*d;
-	const unsigned char		*s;
+	char	**ret_vec;
+	int		i;
 
-	i = len - 1;
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (!d && !s)
-		return (dst);
-	if (d < s)
+	i = 0;
+	if (!vec)
+		return (NULL);
+	ret_vec = ft_calloc(ft_veclen(vec) + 1, sizeof(char *));
+	if (!ret_vec)
+		return (NULL);
+	while (vec[i])
 	{
-		ft_memcpy(dst, src, len);
-		return (dst);
+		ret_vec[i] = ft_strdup(vec[i]);
+		if (!ret_vec[i])
+			return (ft_vecfree(ret_vec), NULL);
+		i++;
 	}
-	while (len--)
-	{
-		d[i] = s[i];
-		i--;
-	}
-	return (dst);
+	ret_vec[i] = NULL;
+	return (ret_vec);
 }
