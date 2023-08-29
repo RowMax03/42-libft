@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 19:57:44 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/08/29 13:10:26 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/08/29 20:44:09 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,7 +265,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 /// @param s1 String 1 as unsigned char*.
 /// @param s2 String 2 as unsigned char*.
 /// @param n Amount of bytes to be compared.
-/// @return Returns NULL if strings are identical. (s1[i] - s2[i]) if not.
+/// @return Returns 0 if strings are identical. (s1[i] - s2[i]) if not.
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /// @brief Compares String \p [s1] to String \p [s2] for \p [n] amount of bytes.
@@ -273,7 +273,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 /// @param s1 String 1 as unsigned char*.
 /// @param s2 String 2 as unsigned char*.
 /// @param n Amount of bytes to be compared.
-/// @return return NULL if strings are identical. (s1[i] - s2[i]) if not.
+/// @return return 0 if strings are identical. (s1[i] - s2[i]) if not.
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /*----------------------------------------------------------------------------*/
@@ -304,6 +304,11 @@ int		ft_isalnum(int c);
 /// @param c character to be checked.
 /// @return Returns 1 if character is Ascii (true). 0 if not (false).
 int		ft_isascii(int c);
+
+/// @brief Checks if character is Whitespace.
+/// @param c character to be checked.
+/// @return Returns 1 if character is Whitespace (true). 0 if not (false).
+int		ft_isspace(char c);
 
 /*----------------------------------------------------------------------------*/
 /*Strings make strings, strings join strings, strings trim strings. Thats life*/
@@ -585,7 +590,7 @@ char	**ft_vectoradd(char	**vec, char *var);
 /// @param vec Null-terminated string vector.
 /// @return Returns pointer to the duplicated string vector.
 /// Returns 0 and frees if memory allocation fails while duplicating.
-char	**ft_vecdup(const char **vec);
+char	**ft_vecdup(char **vec);
 
 /// @brief Frees every Element in \p [vec] until null-pointer is encountered,
 /// then freeing \p [vec]

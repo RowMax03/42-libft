@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vecdup.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 00:32:00 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/08/17 03:51:16 by mreidenb         ###   ########.fr       */
+/*   Created: 2023/08/29 20:35:10 by mreidenb          #+#    #+#             */
+/*   Updated: 2023/08/29 20:42:44 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_vecdup(char **vec)
+int	ft_isspace(char c)
 {
-	char	**ret_vec;
-	int		i;
-
-	i = 0;
-	if (!vec)
-		return (NULL);
-	ret_vec = ft_calloc(ft_veclen(vec) + 1, sizeof(char *));
-	if (!ret_vec)
-		return (NULL);
-	while (vec[i])
-	{
-		ret_vec[i] = ft_strdup(vec[i]);
-		if (!ret_vec[i])
-			return (ft_vecfree(ret_vec), NULL);
-		i++;
-	}
-	ret_vec[i] = NULL;
-	return (ret_vec);
+	if (c == 9 || c == 10 || c == 11 || c == 12 || c == 13 || c == 32)
+		return (1);
+	return (0);
 }
